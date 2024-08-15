@@ -1,4 +1,4 @@
-Package: DiSNEP
+Package: DiSNEP_test
 Type: Package
 Title: DiSNEP: a Disease-Specific Enhancement for gene Network
         Enhancement to improve Prioritizing candidate disease genes
