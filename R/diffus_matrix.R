@@ -33,7 +33,7 @@ diffus_matrix=function(s0,adjacency,alpha=0.75,iter=10,difference=1e-6){
     snet=snet_1
 
     long = 10000000
-    for (x in 1:3600) {
+    for (x in 1:360) {
       c = rep(0,long)
       numberIn = 0
       for(i in 1:long){
