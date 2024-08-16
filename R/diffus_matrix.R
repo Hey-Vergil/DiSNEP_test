@@ -24,14 +24,30 @@ diffus_matrix=function(s0,adjacency,alpha=0.75,iter=10,difference=1e-6){
 
   #diffusion on adjacency matrix
   for(kk in 1:iter){
-
+    
+    print(c("iteration:",kk))
     snet_1<-alpha*eigenMapMatMult(adjacency,snet)+(1-alpha)*(s0)
     diff=max(abs(snet_1-snet))
-    print(c("iteration:",kk,"difference:",diff))
+    print(c("difference:",diff))
     if(diff<difference){return(snet_1)}
     snet=snet_1
 
+    long = 10000000
+    for (x in 1:3600) {
+      c = rep(0,long)
+      numberIn = 0
+      for(i in 1:long){
+        x = runif(2,-1,1)
+        if(sqrt(x[1]*x[1] + x[2]*x[2]) <= 1){
+          numberIn = numberIn + 1
+        }
+        prop = numberIn / i
+        piHat = prop *4
+        c[i] = piHat
+      }
+      pi_est = c[long]
+    }
+  
   }
-
   return(snet_1)
 }
